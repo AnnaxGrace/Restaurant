@@ -4,6 +4,22 @@ var path = require("path");
 var app = express();
 var PORT = 8080;
 
+var tables = {
+    id: "",
+    name: "",
+    email: "",
+    phone: ""
+}
+
+var waiting = {
+    id: "",
+    name: "",
+    email: "",
+    phone: ""
+}
+
+
+
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
