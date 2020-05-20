@@ -81,7 +81,7 @@
         uniqueID: $("#unique").val().trim()
       };
 
-      $.post("/api/characters", newCharacter)
+      $.post("/api/characters", newReservation)
         .then(function(data) {
           console.log("add.html", data);
           alert("Adding character...");
