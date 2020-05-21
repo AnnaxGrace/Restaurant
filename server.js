@@ -4,6 +4,8 @@ var path = require("path");
 var app = express();
 var PORT = 8080;
 
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 var tables = [
     {
@@ -11,7 +13,7 @@ var tables = [
     name: "",
     email: "",
     phone: ""
-}]
+}];
 
 
 var waiting = [
@@ -23,30 +25,28 @@ var waiting = [
 }
 ];
 
-app.post('/api/tables', function(req, res){
-    res.sendFile(path.join(__dirname, 'tables.html'))
-})
+// app.post('/api/tables', function(req, res){
+//     res.sendFile(path.join(__dirname, 'tables.html'))
+// })
 
-app.post('/api/waiting', function(req, res){
-    res.sendFile(path.join(__dirname, 'tables.html'))
-})
+// app.post('/api/waiting', function(req, res){
+//     res.sendFile(path.join(__dirname, 'tables.html'))
+// })
 
 app.post("/api/tables", function(req, res) {
     var newTable = req.body;
     console.log(newTable);
     tables.push(newTable);
     res.json(newTable);
-  });
+});
 
-  app.post("/api/waiting", function(req, res) {
+app.post("/api/waiting", function(req, res) {
     var newWait = req.body;
     console.log(newWait);
     waiting.push(newWait);
     res.json(newWait);
-  });
+});
 
-app.use(express.urlencoded({ extended: true}));
-app.use(express.json());
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
