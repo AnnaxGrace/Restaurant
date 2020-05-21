@@ -4,19 +4,24 @@ var path = require("path");
 var app = express();
 var PORT = 8080;
 
-var tables = [{
+
+var tables = [
+    {
     id: "",
     name: "",
     email: "",
     phone: ""
 }]
 
-var waiting = [{
+
+var waiting = [
+    {
     id: "",
     name: "",
     email: "",
     phone: ""
-}]
+}
+];
 
 app.post('/api/tables', function(req, res){
     res.sendFile(path.join(__dirname, 'tables.html'))
@@ -49,3 +54,8 @@ app.get("/api/tables", function(req, res) {
 app.get("/api/waiting", function(req, res) {
     return res.json(waiting);
 });
+
+app.listen(PORT, function(){
+    console.log("App listening on PORT " + PORT);
+    //http://localhost:8080/
+})
