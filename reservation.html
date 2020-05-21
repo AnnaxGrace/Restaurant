@@ -68,20 +68,25 @@
       </div>
     </div>
     <p>
-    <a href = "google.com">API Table Link</a> | 
+    <a href = "/api">API Table Link</a> | 
     <a href = "google.com>">API Wait List</a>
     </p>
     <script>
          $("#add-btn").on("click", function(event) {
       event.preventDefault();
-      var newReservation = {
+
+      $.ajax({ url: "/api/tables", method: "GET" })
+          .then(function(tableData) {
+            var tables = tableData.length
+
+            var newReservation = {
         name: $("#name").val().trim(),
         phone: $("#phone").val().trim(),
         email: $("#email").val().trim(),
         uniqueID: $("#unique").val().trim()
       };
 
-      if (tables.length < 6) {
+      if (tables < 6) {
       $.post("/api/tables", newReservation)
         .then(function(data) {
           alert("Adding table...");
@@ -93,6 +98,12 @@
           alert("Adding table to waitlist...");
         })
       }
+
+
+
+       })
+
+      
     });
     </script>
 </body>
