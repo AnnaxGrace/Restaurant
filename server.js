@@ -8,21 +8,15 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 var tables = [
-    {
-    id: "",
-    name: "",
-    email: "",
-    phone: ""
-}];
+    
+   
+];
 
 
 var waiting = [
-    {
-    id: "",
-    name: "",
-    email: "",
-    phone: ""
-}
+    
+    
+
 ];
 
 // app.post('/api/tables', function(req, res){
