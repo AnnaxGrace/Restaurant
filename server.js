@@ -4,14 +4,14 @@ var path = require("path");
 var app = express();
 var PORT = 8080;
 
+
 var tables = [
     {
     id: "",
     name: "",
     email: "",
     phone: ""
-}
-];
+}]
 
 
 var waiting = [
@@ -23,6 +23,13 @@ var waiting = [
 }
 ];
 
+app.post('/api/tables', function(req, res){
+    res.sendFile(path.join(__dirname, 'tables.html'))
+})
+
+app.post('/api/waiting', function(req, res){
+    res.sendFile(path.join(__dirname, 'tables.html'))
+})
 
 
 app.use(express.urlencoded({ extended: true}));
