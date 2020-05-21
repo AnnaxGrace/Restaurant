@@ -42,29 +42,14 @@
             <div class="card-body">
               <ul id="tableList" class="list-group">
                 <li class="list-group-item mt-4">
-                  <h2>Table #1</h2>
+                  <h2></h2>
                   <hr />
-                  <h2>ID: </h2>
-                  <h2>Name: </h2>
-                  <h2>Email: </h2>
-                  <h2>Phone: </h2>
+                  <h2> </h2>
+                  <h2> </h2>
+                  <h2></h2>
+                  <h2></h2>
                 </li>
-                <li class="list-group-item mt-4">
-                  <h2>Table #2</h2>
-                  <hr />
-                  <h2>ID:</h2>
-                  <h2>Name: </h2>
-                  <h2>Email:</h2>
-                  <h2>Phone:</h2>
-                </li>
-                <li class="list-group-item mt-4">
-                  <h2>Table #3</h2>
-                  <hr />
-                  <h2>ID:</h2>
-                  <h2>Name:</h2>
-                  <h2>Email:</h2>
-                  <h2>Phone:</h2>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -95,18 +80,21 @@
 
     <script type="text/javascript">
     
-      function runTable(data) {
-          $.ajax({ url: data, method: "GET" })
+
+
+
+      function runTable(data, data2) {
+  
+        $.ajax({ url: data, method: "GET" })
           .then(function(tableData) {
-    
-            
+ 
             console.log(tableData);
            
-    
-            // Loop through and display each of the customers
             for (var i = 0; i < tableData.length; i++) {
-    
+  
               var tables = $("#tableList");
+            
+
     
 
               var listItem = $("<li class='list-group-item mt-4'>");
@@ -115,7 +103,9 @@
                 $("<h2>").text("Table #" + (i + 1)),
                 $("<hr>"),
                 $("<h2>").text("ID: " + tableData[i].uniqueID),
-                $("<h2>").text("Name: " + tableData[i].namee),
+
+                $("<h2>").text("Name: " + tableData[i].name),
+
                 $("<h2>").text("Email: " + tableData[i].email),
                 $("<h2>").text("Phone: " + tableData[i].phone)
               );
@@ -124,8 +114,11 @@
             }
           });
       }
-     
-     runTable()
+
+
+     runTable("/api/tables");
+     runTable("/api/waiting")
+
       
     </script>
 

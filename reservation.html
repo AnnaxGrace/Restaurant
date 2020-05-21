@@ -19,8 +19,8 @@
       <h1>Yeast Restaurant</h1>
       <h3>Make your reservation!</h3>
       <hr>
-      <a href="/add"><button class="btn btn-primary btn-lg"><span class="fa fa-plus"></span>View Tables</button></a>
-      <a href="/api/characters"><button class="btn btn-default btn-lg"><span
+      <a href="/tables"><button class="btn btn-primary btn-lg"><span class="fa fa-plus"></span>View Tables</button></a>
+      <a href="/"><button class="btn btn-default btn-lg"><span
             class="fa fa-home"></span></button></a>
     </div>
    
@@ -68,8 +68,8 @@
       </div>
     </div>
     <p>
-    <a href = "/api">API Table Link</a> | 
-    <a href = "google.com>">API Wait List</a>
+    <a href = "/api/tables">API Table Link</a> | 
+    <a href = "/api/waiting">API Wait List</a>
     </p>
     <script>
          $("#add-btn").on("click", function(event) {
@@ -86,7 +86,7 @@
         uniqueID: $("#unique").val().trim()
       };
 
-      if (tables < 6) {
+      if (tables < 5) {
       $.post("/api/tables", newReservation)
         .then(function(data) {
           alert("Adding table...");
