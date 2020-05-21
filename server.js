@@ -31,6 +31,19 @@ app.post('/api/waiting', function(req, res){
     res.sendFile(path.join(__dirname, 'tables.html'))
 })
 
+app.post("/api/tables", function(req, res) {
+    var newTable = req.body;
+    console.log(newTable);
+    tables.push(newTable);
+    res.json(newTable);
+  });
+
+  app.post("/api/waiting", function(req, res) {
+    var newWait = req.body;
+    console.log(newWait);
+    waiting.push(newWait);
+    res.json(newWait);
+  });
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
