@@ -81,11 +81,18 @@
         uniqueID: $("#unique").val().trim()
       };
 
-      $.post("/api/characters", newReservation)
+      if (tables.length < 6) {
+      $.post("/api/tables", newReservation)
         .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding character...");
+          alert("Adding table...");
         });
+      }
+      else {
+        $.post("api/waiting", newReservation)
+        .then(function(data) {
+          alert("Adding table to waitlist...");
+        })
+      }
     });
     </script>
 </body>
