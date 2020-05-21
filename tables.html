@@ -80,6 +80,9 @@
 
     <script type="text/javascript">
     
+
+
+
       function runTable(data, data2) {
   
         $.ajax({ url: data, method: "GET" })
@@ -91,15 +94,18 @@
   
               var tables = $("#tableList");
             
+
     
-              // Then display the fields in the HTML (Section Name, Date, URL)
+
               var listItem = $("<li class='list-group-item mt-4'>");
     
               listItem.append(
                 $("<h2>").text("Table #" + (i + 1)),
                 $("<hr>"),
                 $("<h2>").text("ID: " + tableData[i].uniqueID),
+
                 $("<h2>").text("Name: " + tableData[i].name),
+
                 $("<h2>").text("Email: " + tableData[i].email),
                 $("<h2>").text("Phone: " + tableData[i].phone)
               );
@@ -108,8 +114,11 @@
             }
           });
       }
+
+
      runTable("/api/tables");
      runTable("/api/waiting")
+
       
     </script>
 
